@@ -9,13 +9,14 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FileDrop",
+  title: "DirectDash",
   description:
-    "FileDrop: Swift P2P file sharing and real-time chat. Experience seamless, secure data exchange with our WebRTC-powered Next.js app. Join us for instant messaging and efficient file transfer in a modern, user-friendly environment.",
+    "DirectDash: Swift P2P file sharing and real-time chat. Experience seamless, secure data exchange with our WebRTC-powered Next.js app. Join us for instant messaging and efficient file transfer in a modern, user-friendly environment.",
   authors: [
     {
       name: "Yug Bhanushali",
-      url: "https://github.com/YugBhanushali",
+      // UPDATED: New GitHub Repo Link
+      url: "https://github.com/thecsguy09/DirectDash",
     },
   ],
   keywords: keywordsForMetaData,
