@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,19 +10,22 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "./ui/input";
-import { Copy, Link2, Share } from "lucide-react";
+import { Link2, Share } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import toast from "react-hot-toast";
 import { useTheme } from "next-themes";
 
 const ShareLink = ({ userCode }: { userCode: string }) => {
   const { theme } = useTheme();
+
   const handleCopyClick = () => {
+    // UPDATED: Now points to the new Netlify domain
     navigator.clipboard.writeText(
-      `https://file-drops.vercel.app/transfer?code=${userCode}`
+      `https://directdash.netlify.app/transfer?code=${userCode}`
     );
     toast.success("Link Copied");
   };
+
   return (
     <>
       <Dialog>
@@ -44,8 +48,9 @@ const ShareLink = ({ userCode }: { userCode: string }) => {
           <div className="flex items-center justify-center space-x-2">
             <div className="flex flex-col w-full gap-y-2 justify-center items-center">
               <div className="flex justify-center border rounded-md w-fit p-2">
+                {/* UPDATED: QR Code value now points to Netlify */}
                 <QRCodeSVG
-                  value={`https://fast-drop.vercel.app/transfer?code=${userCode}`}
+                  value={`https://directdash.netlify.app/transfer?code=${userCode}`}
                   size={128}
                   bgColor={theme === "dark" ? "#000000" : "#ffffff"}
                   fgColor={theme === "dark" ? "#ffffff" : "#000000"}
@@ -56,7 +61,8 @@ const ShareLink = ({ userCode }: { userCode: string }) => {
               <div className="flex w-full justify-center gap-x-1">
                 <Input
                   id="link"
-                  defaultValue={`https://fast-drop.vercel.app/transfer?code=${userCode}`}
+                  // UPDATED: Input field display value
+                  defaultValue={`https://directdash.netlify.app/transfer?code=${userCode}`}
                   readOnly
                 />
                 <Button
