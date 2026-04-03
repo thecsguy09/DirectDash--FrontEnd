@@ -9,8 +9,12 @@ export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
   const socket = useMemo(() => {
-    return io(String(process.env.NEXT_PUBLIC_SOCKET_SERVER_URL));
+    // HARDCODED: Using your exact Railway production URL with the required https:// protocol
+    return io("https://directdash-backend-production.up.railway.app", {
+      transports: ["websocket"], // Forces WebSocket for faster, more stable P2P signaling
+    });
   }, []);
+
   const [peerState, setpeerState] = useState<any>();
   const userId = useMemo(() => nanoid(10), []);
 
